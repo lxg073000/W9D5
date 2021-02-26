@@ -1,2 +1,3 @@
-import warmUp from "./warmup";
-import htmlGenerator from "./warmup";
+// sould only import one file 
+import "./warmup";
+import "./clock";
