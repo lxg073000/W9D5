@@ -60,7 +60,7 @@ h1 {
 #some-dogs {
   display: flex;
   justify-content: flex-end;
-  background-color: grey;
+  background-color: rgb(230, 230, 230);
   width: 15%;
   height: auto;
   margin: auto 0;
