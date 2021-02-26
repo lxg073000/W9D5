@@ -20,13 +20,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _war
 
 /***/ }),
 
+/***/ "./src/drop_down.js":
+/*!**************************!*\
+  !*** ./src/drop_down.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"dogLinkCreator\": () => (/* binding */ dogLinkCreator),\n/* harmony export */   \"attachDogLinks\": () => (/* binding */ attachDogLinks)\n/* harmony export */ });\nconst dogs = {\n  Corgi: \"https://www.akc.org/dog-breeds/cardigan-welsh-corgi/\",\n  \"Australian Shepherd\": \"https://www.akc.org/dog-breeds/australian-shepherd/\",\n  Affenpinscher: \"https://www.akc.org/dog-breeds/affenpinscher/\",\n  \"American Staffordshire Terrier\":\n    \"https://www.akc.org/dog-breeds/american-staffordshire-terrier/\",\n  Tosa: \"https://www.akc.org/dog-breeds/tosa/\",\n  \"Labrador Retriever\": \"https://www.akc.org/dog-breeds/labrador-retriever/\",\n  \"French Bulldog\": \"https://www.akc.org/dog-breeds/french-bulldog/\",\n};\n\nconst dogLinkCreator = function () {\n  const dogsArr = [];\n  Object.keys(dogs).forEach((dog) => {\n    let dogLink = document.createElement(\"a\");\n    dogLink.innerHTML = dog;\n    dogLink.href = dogs[dog];\n    let dogLI = document.createElement(\"li\");\n    dogLI.append(dogLink);\n    dogsArr.push(dogLI);\n  });\n  return dogsArr;\n};\n\nconst attachDogLinks = function () {\n  const dogLinks = dogLinkCreator();\n\n  dogLinks.forEach((dogLink) => {\n    const ul = document.getElementsByClassName(\"drop-down-dog-list\")[0];\n    ul.append(dogLink);\n  });\n};\n\nattachDogLinks();\n// debugger;\n\n\n//# sourceURL=webpack:///./src/drop_down.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _warmup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./warmup */ \"./src/warmup.js\");\n/* harmony import */ var _clock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clock */ \"./src/clock.js\");\n// sould only import one file \n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _warmup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./warmup */ \"./src/warmup.js\");\n/* harmony import */ var _clock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clock */ \"./src/clock.js\");\n/* harmony import */ var _drop_down__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drop_down */ \"./src/drop_down.js\");\n// sould only import one file\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -36,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _war
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"htmlGenerator\": () => (/* binding */ htmlGenerator)\n/* harmony export */ });\nconst partyHeader = document.getElementById(\"party\");\n// debugger;\nconst htmlGenerator = (string, htmlElement) => {\n  let p = document.createElement(\"p\");\n  console.log(p)\n  // let $node = document.createTextNode(string);\n  // p = p.appendChild($node);\n  p.innerHTML = string   // here we changed the function from createTextNode and appendChild to simply \".innerHTML\"\n  //this is because innerHTML adds the pext into the HTML element where as createTextNode adds text\n  // outside of the HTML element  \n  console.log(p)\n\n  \n  // const $children = Array.from(htmlElement.children);\n  // if ($children.length > 1) {\n  //   console.log(\"inside conditional\");\n  //   htmlElement.append($children[$children.length - 1])\n  // } else {htmlElement.append($p)};\n\n//now before we append we need to make some revisions to the if statement so that we delete\n// the previous child (previous time) and replace with the new child(the current time)\n\n  let child = htmlElement.lastElementChild;  \n  while (child) { \n      htmlElement.removeChild(child); \n      child = htmlElement.lastElementChild; \n  }\n  htmlElement.append(p)\n\n  \n};\n\nhtmlGenerator(\" Party Time.\", partyHeader);\n\n\n//# sourceURL=webpack:///./src/warmup.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"htmlGenerator\": () => (/* binding */ htmlGenerator)\n/* harmony export */ });\nconst partyHeader = document.getElementById(\"party\");\n// debugger;\nconst htmlGenerator = (string, htmlElement) => {\n  let p = document.createElement(\"p\");\n  // let $node = document.createTextNode(string);\n  // p = p.appendChild($node);\n  p.innerHTML = string; // here we changed the function from createTextNode and appendChild to simply \".innerHTML\"\n  //this is because innerHTML adds the pext into the HTML element where as createTextNode adds text\n  // outside of the HTML element\n\n  // const $children = Array.from(htmlElement.children);\n  // if ($children.length > 1) {\n  //   console.log(\"inside conditional\");\n  //   htmlElement.append($children[$children.length - 1])\n  // } else {htmlElement.append($p)};\n\n  //now before we append we need to make some revisions to the if statement so that we delete\n  // the previous child (previous time) and replace with the new child(the current time)\n\n  let child = htmlElement.lastElementChild;\n  while (child) {\n    // need a while statement so can remove all children\n    htmlElement.removeChild(child); //this is logically the same as we made it except i added a removechild.\n    child = htmlElement.lastElementChild; //easy function that i found that grabs last child\n  }\n  htmlElement.append(p);\n};\n\nhtmlGenerator(\" Party Time.\", partyHeader);\n\n\n//# sourceURL=webpack:///./src/warmup.js?");
 
 /***/ })
 
