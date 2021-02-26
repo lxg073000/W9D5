@@ -31,5 +31,25 @@ export const attachDogLinks = function () {
   });
 };
 
+// export const handleEnter = function() {
+    let dogEnter = document.getElementById("some-dogs")
+    dogEnter.addEventListener("mouseover", () => {
+      // debugger
+      let dogsUl = document.getElementsByClassName("drop-down-dog-list")[0];
+      dogsUl.classList.toggle('hidden');
+    })
+// };
+
+// export const handleExit = function() {
+  let dogExit = document.getElementById("some-dogs");
+  // debugger
+  dogExit.addEventListener("mouseout", () => {
+    // debugger
+
+    let dogsUl = document.getElementsByClassName("drop-down-dog-list")[0];
+    dogsUl.classList.toggle('hidden');
+  })
+// };
+
 attachDogLinks();
 // debugger;
