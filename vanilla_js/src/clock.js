@@ -27,7 +27,7 @@ class Clock {
   
       // Use console.log to print it.
         //  console.log(timeString);
-        debugger
+      // debugger
 
       htmlGenerator(timeString, newClock);
 
